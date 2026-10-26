@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack | Get Started</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="login-container">
+        <section class="welcome">
+            <div class="logo">✚</div>
+            <p class="eyebrow">YOUR PERSONAL WELLNESS COMPANION</p>
+            <h1>Take charge of your health.</h1>
+            <p class="subtitle">
+                Small steps, better habits, a healthier you.
+                Start tracking your daily wellness journey.
+            </p>
+
+            <div class="benefit">✓ Track your daily steps</div>
+            <div class="benefit">✓ Monitor your water intake</div>
+            <div class="benefit">✓ Understand your daily progress</div>
+        </section>
+
+        <section class="form-section">
+            <div class="form-heading">
+                <p class="eyebrow">LET'S GET STARTED</p>
+                <h2>Create your profile</h2>
+                <p>Enter your details to open your dashboard.</p>
+            </div>
+
+            <form id="profileForm">
+                <label for="name">Full name</label>
+                <input type="text" id="name" placeholder="Enter your name"
+                       maxlength="60" required>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age"
+                       min="1" max="120" required>
+
+                <label for="mobile">Mobile number</label>
+                <input type="tel" id="mobile" placeholder="10-digit mobile number"
+                       inputmode="numeric" pattern="[0-9]{10}"
+                       maxlength="10" required>
+
+                <label for="disease">
+                    Health condition or disease
+                    <span class="optional">(optional)</span>
+                </label>
+                <input type="text" id="disease"
+                       placeholder="Enter only if you wish to"
+                       maxlength="150">
+
+                <p class="privacy-note">
+                    Your details are saved in this browser for this demo.
+                    Avoid entering sensitive medical information.
+                </p>
+
+                <button type="submit" class="primary-btn">
+                    Open My Dashboard →
+                </button>
+                <p id="errorMessage" class="error-message"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
