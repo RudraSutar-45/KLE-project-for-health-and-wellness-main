@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WellNest - Adult Vitals & Health Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+</head>
+<body class="bg-[#f4faff] text-slate-800 antialiased min-h-screen flex justify-center p-0 md:p-6">
+  <div class="w-full max-w-[420px] bg-[#f4faff] min-h-screen flex flex-col shadow-2xl md:rounded-[2.5rem] border border-slate-200/60 pb-20 relative">
+    
+    <!-- Top Header -->
+    <header class="sticky top-0 z-20 bg-white/90 backdrop-blur-md px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold">🌿</div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">WellNest</h1>
+          <p class="text-[11px] text-slate-500 font-medium">Adult Vitals</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="p-2 text-slate-500 hover:text-slate-700 rounded-full hover:bg-slate-100"><i data-lucide="bell" class="w-5 h-5"></i></button>
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-emerald-500/20" />
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto px-4 py-5 space-y-4">
+      <!-- Title & Sync Status -->
+      <section class="flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold tracking-wider text-emerald-800 uppercase">HOLISTIC ADULT VITALS</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Today's Equilibrium</h2>
+        </div>
+        <span class="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 border border-emerald-100 rounded-full text-emerald-700 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Realtime Sync
+        </span>
+      </section>
+
+      <!-- Step Trajectory (10,000 Step Target) -->
+      <section class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Step Trajectory</h3>
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg">↗ 84% Goal</span>
+        </div>
+        <div class="grid grid-cols-2 gap-4 items-center">
+          <div class="text-center p-3 bg-slate-50 rounded-2xl">
+            <div class="text-3xl font-black text-slate-900">8,420</div>
+            <span class="text-[11px] text-slate-500">/ 10,000 steps</span>
+          </div>
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center gap-2 text-slate-600">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i>
+              <span>Distance: <strong>6.32 km</strong></span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-600">
+              <i data-lucide="clock" class="w-4 h-4 text-indigo-600"></i>
+              <span>Active Time: <strong>68 mins</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="p-2.5 bg-emerald-50/70 border border-emerald-100 rounded-xl text-[11px] text-emerald-800 flex items-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4 shrink-0 text-emerald-600"></i>
+          <span>Just <strong>1,580 steps</strong> to conclude today's optimal quota.</span>
+        </div>
+      </section>
+
+      <!-- Clinical Biomarkers (Blood Pressure & SpO2) -->
+      <section class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Clinical Biomarkers</h3>
+          <span class="text-[11px] text-slate-400">Calibrated 14m ago</span>
+        </div>
+        <!-- Blood Pressure -->
+        <div class="p-3.5 bg-slate-50 rounded-2xl flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-slate-500 uppercase font-semibold block">Blood Pressure</span>
+            <div class="text-xl font-extrabold text-slate-900">118/76 <span class="text-xs font-normal text-slate-500">mmHg</span></div>
+            <span class="text-[10px] text-slate-500">Optimal Healthy (&lt; 120/80)</span>
+          </div>
+          <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold">Normal</span>
+        </div>
+        <!-- SpO2 & Heart Rate -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="p-3.5 bg-slate-50 rounded-2xl">
+            <span class="text-[11px] text-slate-500 uppercase font-semibold block">Blood Oxygen</span>
+            <div class="text-xl font-extrabold text-slate-900">98% <span class="text-xs font-normal text-slate-500">SpO2</span></div>
+            <span class="text-[10px] text-emerald-600 font-medium">Safe Limit: ≥ 95%</span>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-2xl">
+            <span class="text-[11px] text-slate-500 uppercase font-semibold block">Resting Pulse</span>
+            <div class="text-xl font-extrabold text-slate-900">72 <span class="text-xs font-normal text-slate-500">BPM</span></div>
+            <span class="text-[10px] text-slate-500 font-medium">Normal (60–100)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cellular Hydration Tracker -->
+      <section class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="droplet" class="w-4 h-4 text-sky-500"></i>
+            <h3 class="text-sm font-bold text-slate-900">Cellular Hydration</h3>
+          </div>
+          <span class="text-xs font-extrabold text-sky-600" id="hydrationText">2.1 / 3.0 Liters</span>
+        </div>
+        <div class="grid grid-cols-7 gap-1.5" id="glassGrid">
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-sky-500 text-white font-bold text-xs" onclick="toggleGlass(this)">🥛</button>
+          <button class="h-9 rounded-xl bg-slate-100 text-slate-400 font-bold text-xs" onclick="toggleGlass(this)">+</button>
+        </div>
+      </section>
+
+      <!-- Calorie Burn & Suggestions -->
+      <section class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Energy Balance & Burn</h3>
+          <span class="text-sm font-black text-amber-800">540 kcal burned</span>
+        </div>
+        <div class="p-3.5 bg-amber-50/70 border border-amber-100 rounded-2xl text-xs space-y-1">
+          <span class="font-bold text-amber-900 block">🚶 Calorie Prescription</span>
+          <p class="text-amber-800 text-[11px]">Take a 20-minute post-dinner brisk walk to blunt glucose spikes and burn +110 kcal.</p>
+        </div>
+      </section>
+
+      <!-- Sleep Architecture Suggestions -->
+      <section class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Sleep Architecture</h3>
+          <span class="text-xs text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-md">Bedtime 10:45 PM</span>
+        </div>
+        <div class="p-3 bg-indigo-50/60 rounded-2xl text-xs text-indigo-900 space-y-1">
+          <p class="text-[11px] leading-relaxed">🌙 Switch off high-spectrum blue displays 30 mins prior to bed. Magnesium glycinate recommended at 10:00 PM.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Nav -->
+    <nav class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200/80 px-6 py-2.5 flex items-center justify-between z-30">
+      <a href="2-youth-dashboard.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+        <i data-lucide="sparkles" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Youth</span>
+      </a>
+      <a href="3-adult-vitals.html" class="flex flex-col items-center gap-1 text-emerald-700 font-semibold">
+        <i data-lucide="activity" class="w-5 h-5"></i>
+        <span class="text-[10px]">Vitals</span>
+      </a>
+      <a href="4-screen-time.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+        <i data-lucide="timer" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Focus</span>
+      </a>
+      <a href="1-registration.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Profile</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    function toggleGlass(btn) {
+      if (btn.classList.contains('bg-sky-500')) {
+        btn.className = "h-9 rounded-xl bg-slate-100 text-slate-400 font-bold text-xs";
+        btn.textContent = "+";
+      } else {
+        btn.className = "h-9 rounded-xl bg-sky-500 text-white font-bold text-xs";
+        btn.textContent = "🥛";
+      }
+    }
+  </script>
+</body>
+</html>

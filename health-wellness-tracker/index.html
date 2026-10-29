@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellNest | Health & Wellness</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand">🌿 WellNest</a>
+    <span>Health • Balance • Better Living</span>
+  </header>
+
+  <main>
+    <!-- LOGIN PAGE -->
+    <section id="loginPage" class="login-layout">
+      <div class="welcome">
+        <span class="eyebrow">YOUR PERSONAL WELLNESS SPACE</span>
+        <h1>Small habits.<br>Better days.</h1>
+        <p>Track your wellbeing, understand your routines
+          and build healthier habits one day at a time.</p>
+        <div class="welcome-points">
+          <p>✓ Personalized wellness dashboard</p>
+          <p>✓ Sleep, mood and activity tracking</p>
+          <p>✓ Practical daily suggestions</p>
+        </div>
+      </div>
+
+      <form id="loginForm" class="panel login-form">
+        <h2>Create your profile</h2>
+        <p class="muted">Enter your details to get started.</p>
+
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text"
+          placeholder="Enter your name" required maxlength="80">
+
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number"
+          placeholder="Enter your age" min="1" max="120" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select gender</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Non-binary</option>
+          <option>Prefer not to say</option>
+        </select>
+
+        <label for="mobile">Mobile number</label>
+        <input id="mobile" name="mobile" type="tel"
+          placeholder="Enter mobile number" required
+          pattern="[0-9+() -]{7,20}"
+          title="Enter a valid phone number">
+
+        <label for="health">Health complications (optional)</label>
+        <textarea id="health" name="health" rows="2"
+          maxlength="500"
+          placeholder="Optional: allergies or conditions"></textarea>
+
+        <button class="primary-btn" type="submit">
+          Enter my dashboard →
+        </button>
+        <p class="tiny">Demo only. Avoid entering real sensitive health
+          information or contact details.</p>
+      </form>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboardPage" class="hidden">
+      <div class="dashboard-heading">
+        <div>
+          <span class="eyebrow">YOUR WELLNESS OVERVIEW</span>
+          <h1 id="greeting">Welcome!</h1>
+          <p id="dashboardSubtitle" class="muted"></p>
+        </div>
+        <button id="logoutBtn" class="secondary-btn">Log out</button>
+      </div>
+
+      <div class="notice">
+        <strong>Wellness note:</strong> This website offers general
+        educational guidance, not diagnosis or medical treatment.
+        Readings are manually entered and are not measured by this site.
+      </div>
+
+      <!-- STUDENT DASHBOARD: age <= 20 -->
+      <div id="studentDashboard" class="hidden">
+        <h2>🌼 Student wellness</h2>
+        <p class="muted">Make room for learning, rest and yourself.</p>
+
+        <div class="grid two">
+          <article class="panel">
+            <h3>How are you feeling today?</h3>
+            <label for="mood">Choose your mood</label>
+            <select id="mood">
+              <option value="">Select today's mood</option>
+              <option value="great">😊 Great</option>
+              <option value="good">🙂 Good</option>
+              <option value="okay">😐 Okay</option>
+              <option value="low">😔 Low</option>
+              <option value="stressed">😣 Stressed</option>
+            </select>
+            <label for="moodNote">Optional note</label>
+            <textarea id="moodNote" rows="2"
+              placeholder="What affected your mood today?"></textarea>
+            <button id="saveMoodBtn" class="primary-btn">
+              Save today's mood
+            </button>
+            <p id="moodMessage" class="feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="panel">
+            <h3>🌙 Sleep tracker</h3>
+            <label for="sleepHours">Hours slept last night</label>
+            <input id="sleepHours" type="number" min="0" max="24"
+              step="0.25" placeholder="e.g. 8">
+            <button id="saveSleepBtn" class="primary-btn">
+              Save sleep
+            </button>
+            <div id="sleepResult" class="result-box">
+              Your sleep insights will appear here.
+            </div>
+          </article>
+        </div>
+
+        <article class="panel section-gap">
+          <h3>📚 Manage your workload</h3>
+          <p class="muted">Choose your class and available study time.
+            The planner divides time into study, homework, revision and breaks.</p>
+          <div class="grid two">
+            <div>
+              <label for="schoolClass">School class</label>
+              <select id="schoolClass">
+                <option value="primary">Classes 1–5</option>
+                <option value="middle">Classes 6–8</option>
+                <option value="secondary" selected>Classes 9–10</option>
+                <option value="senior">Classes 11–12</option>
+                <option value="college">College / other</option>
+              </select>
+            </div>
+            <div>
+              <label for="studyTime">Available study hours today</label>
+              <input id="studyTime" type="number" min="0" max="12"
+                step="0.5" value="3">
+            </div>
+          </div>
+          <button id="planBtn" class="primary-btn">
+            Build my study plan
+          </button>
+          <div id="workloadPlan" class="plan-list"></div>
+        </article>
+
+        <article class="panel section-gap">
+          <h3>📊 Sleep and mood analysis</h3>
+          <p class="muted">Compare the sleep and mood you record each day.
+            A few entries may reveal patterns, but cannot prove that sleep
+            caused a particular mood.</p>
+          <div id="moodSleepAnalysis" class="result-box">
+            Save your mood and sleep to begin your daily analysis.
+          </div>
+          <h4>Recent history</h4>
+          <div id="studentHistory" class="history-list"></div>
+        </article>
+      </div>
+
+      <!-- ADULT DASHBOARD: age > 20 -->
+      <div id="adultDashboard" class="hidden">
+        <h2>💚 Personal fitness & wellness</h2>
+        <p class="muted">Set realistic goals and track your daily habits.</p>
+
+        <div class="grid two">
+          <article class="panel">
+            <h3>👟 Daily steps</h3>
+            <label for="stepTarget">Step target</label>
+            <input id="stepTarget" type="number" min="1"
+              max="100000" value="6000">
+            <label for="stepsDone">Steps covered</label>
+            <input id="stepsDone" type="number" min="0"
+              max="100000" value="0">
+            <div class="progress-track">
+              <div id="stepProgress" class="progress-fill"></div>
+            </div>
+            <p id="stepSummary" class="result-box">0 steps recorded.</p>
+          </article>
+
+          <article class="panel">
+            <h3>💧 Water intake</h3>
+            <label for="waterGoal">Daily water goal (mL)</label>
+            <input id="waterGoal" type="number" min="250"
+              max="10000" step="250" value="2000">
+            <label for="waterAmount">Water consumed today (mL)</label>
+            <input id="waterAmount" type="number" min="0"
+              max="10000" step="100" value="0">
+            <div class="progress-track">
+              <div id="waterProgress" class="progress-fill"></div>
+            </div>
+            <p id="waterSummary" class="result-box">0 mL recorded.</p>
+            <div class="button-row">
+              <button class="secondary-btn" data-water="250">
+                +250 mL
+              </button>
+              <button class="secondary-btn" data-water="500">
+                +500 mL
+              </button>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>🫁 Oxygen saturation</h3>
+            <label for="oxygen">SpO₂ reading (%)</label>
+            <input id="oxygen" type="number" min="50" max="100"
+              placeholder="Enter device reading">
+            <p class="tiny">Use a compatible pulse oximeter.</p>
+            <button id="saveOxygenBtn" class="primary-btn">
+              Review reading
+            </button>
+            <div id="oxygenResult" class="result-box">
+              No reading entered.
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>🩺 Blood pressure</h3>
+            <div class="grid two compact-grid">
+              <div>
+                <label for="systolic">Systolic (top)</label>
+                <input id="systolic" type="number" min="50"
+                  max="300" placeholder="e.g. 120">
+              </div>
+              <div>
+                <label for="diastolic">Diastolic (bottom)</label>
+                <input id="diastolic" type="number" min="30"
+                  max="200" placeholder="e.g. 80">
+              </div>
+            </div>
+            <p class="tiny">Rest quietly before measuring and follow
+              your device instructions.</p>
+            <button id="saveBPBtn" class="primary-btn">
+              Review blood pressure
+            </button>
+            <div id="bpResult" class="result-box">
+              No reading entered.
+            </div>
+          </article>
+        </div>
+
+        <article class="panel section-gap">
+          <h3>😴 Sleep management</h3>
+          <label for="adultSleep">Hours slept last night</label>
+          <input id="adultSleep" type="number" min="0" max="24"
+            step="0.25" placeholder="e.g. 8">
+          <button id="sleepAdviceBtn" class="primary-btn">
+            Get sleep suggestions
+          </button>
+          <div id="adultSleepResult" class="result-box">
+            Enter sleep hours for suggestions.
+          </div>
+        </article>
+
+        <article class="panel section-gap">
+          <h3>🔥 Movement and energy</h3>
+          <p class="muted">Estimated calories are approximate, not
+            a measurement of actual energy expenditure.</p>
+          <div class="grid two">
+            <div>
+              <label for="activity">Activity</label>
+              <select id="activity">
+                <option value="walking">Easy walking</option>
+                <option value="brisk">Brisk walking</option>
+                <option value="cycling">Leisure cycling</option>
+                <option value="dancing">Dancing</option>
+                <option value="yoga">Gentle yoga</option>
+              </select>
+            </div>
+            <div>
+              <label for="activityMinutes">Duration (minutes)</label>
+              <input id="activityMinutes" type="number" min="1"
+                max="600" value="20">
+            </div>
+          </div>
+          <button id="calorieBtn" class="primary-btn">
+            Estimate activity energy
+          </button>
+          <div id="calorieResult" class="result-box">
+            Choose an activity to see an estimate.
+          </div>
+        </article>
+
+        <article class="panel section-gap">
+          <h3>✨ Today's wellness suggestions</h3>
+          <ul id="healthSuggestions" class="suggestion-list"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>WellNest • A wellness learning project</p>
+    <p>Not a medical device. Seek professional care for medical concerns.</p>
+  </footer>
+</body>
+</html>
